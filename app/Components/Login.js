@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import Logo from "./Logo";
 import { useRouter } from "next/navigation";
 import Container from "./section";
-
+import Cookies from "js-cookie"
 const schema = yup.object({
   name: yup
     .string()
@@ -38,6 +38,7 @@ export default function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data) => {
+    Cookies.set("/", true)
     route.push("/Dashboard");
     reset();
   };

@@ -170,7 +170,7 @@ export default function Navbar() {
                       key={index}
                       className=" flex gap-3 group hover:bg-slate-700 py-2 rounded-md px-3 items-center"
                     >
-                      <Link href={list.Links} className="flex gap-3 cursor-default md:cursor-pointer">
+                      <Link prefetch={false} href={list.Links} className="flex gap-3 cursor-default md:cursor-pointer">
                         <span className=" text-white  group-hover:text-sky-500 text-2xl">
                           {list.icon}
                         </span>
@@ -224,6 +224,7 @@ export default function Navbar() {
                 </h1>
                 {List.map((list, index) => (
                   <Link
+                  prefetch={false} 
                     href={list.Links}
                     key={index}
                     className={`cursor-none md:cursor-pointer`}

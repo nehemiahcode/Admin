@@ -21,7 +21,7 @@ export default function Footer() {
         <ul className=" flex flex-col gap-2">
           {Links.map((link, index) => (
             <li key={index}>
-              <Link href={link.url} className=" text-sm text-cyan-400">
+              <Link prefetch={false}  href={link.url} className=" text-sm text-cyan-400">
                 {link.text}
               </Link>
             </li>
@@ -34,7 +34,7 @@ export default function Footer() {
         <ul>
           {Terms.map((terms, index) => (
             <li key={index}>
-              <Link href={terms.url} className=" text-sm py-2 text-cyan-400">{terms.text}</Link>
+              <Link prefetch={false}  href={terms.url} className=" text-sm py-2 text-cyan-400">{terms.text}</Link>
             </li>
           ))}
         </ul>
