@@ -1,9 +1,7 @@
-
 import "../globals.css";
 
-
 export const metadata = {
-  title: "Sydmin | Dashboard",
+  title: "Sydmin | Users",
   description: "User Dashboard. ",
 };
 
@@ -12,6 +10,5 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body>{children}</body>
     </html>
-
   );
 }

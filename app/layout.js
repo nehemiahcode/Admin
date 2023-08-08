@@ -2,9 +2,9 @@ import "./globals.css";
 
 
 export const metadata = {
-  title: "Nehemiah | Portfolio",
+  title: "Sydmin",
   description:
-    "Hi my name is Nehemiah, i am a fullstack web developer I am quietly confident, naturally curious and keep working on improving my skills Feel free to get in touch with me for your awesome Project today. ",
+    "Sydmin Admin dashboard Created with React.js/Next.js/Tailwind-Css. Fast, Responsive and Proffesonal.",
 };
 
 export default function RootLayout({ children }) {

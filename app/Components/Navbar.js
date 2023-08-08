@@ -3,17 +3,16 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { BiUser } from "react-icons/bi";
-import { MdEventBusy, MdSettingsSuggest } from "react-icons/md";
+import { MdSettingsSuggest } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { SiBaremetrics } from "react-icons/si";
 import { BiSearch } from "react-icons/bi";
-import Avatar from "@/public/testimonial-03.jpg";
-import { TiContacts } from "react-icons/ti";
+import Avatar from "@/public/auoth.jpg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Ripples from "react-ripples";
 import SearchField from "./Search";
 import Image from "next/image";
-import { FaAngleUp } from "react-icons/fa";
+import { FaAngleUp, FaUsers } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -31,21 +30,21 @@ export default function Navbar() {
   //Array storing my List items
   const List = [
     { text: "Dashboard", Links: "/Dashboard", icon: <RxDashboard /> },
-    { text: "Users", Links: "/Users", icon: <BiUser /> },
-    { text: "Settings", Links: "/Settings", icon: <MdSettingsSuggest /> },
-    { text: "Log out", Links: "/Logout", icon: <CiLogout /> },
+    { text: "Profile", Links: "/Profile", icon: <BiUser /> },
+    { text: "Users", Links: "/Users", icon: <FaUsers /> },
+    { text: "Log out", Links: "/", icon: <CiLogout /> },
   ];
 
   //Array storing my Dropdown menu list items
   const Drop = [
     { text: "My Profile", icon: <BiUser />, Links: "/Profile" },
-    { text: "My Contacts", icon: <TiContacts />, Links: "/Contact" },
+    { text: "Users", icon: <FaUsers />, Links: "/Users" },
     {
       text: "Account Settings",
       icon: <MdSettingsSuggest />,
       Links: "/Settings",
     },
-    { text: "Log out", icon: <CiLogout />, Links: "/Logout" },
+    { text: "Log out", icon: <CiLogout />, Links: "/" },
   ];
   function handleNavbarActive() {
     setActive(!active);
@@ -109,7 +108,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="  bg-slate-900   z-[9999] fixed  w-full flex items-center justify-between h-[70px] left-0 top-0 px-5">
+      <header className="  bg-slate-900   z-[9999] fixed  w-full flex items-center  justify-between h-[70px] left-0 top-0 px-5">
         <div className=" flex items-center gap-3">
           <span
             ref={menuRef}
@@ -154,7 +153,7 @@ export default function Navbar() {
                 <Image
                   src={Avatar}
                   alt="myImage"
-                  className=" h-[50px] w-[50px] rounded-full cursor-pointer"
+                  className=" h-[50px] w-[50px] rounded-full cursor-default md:cursor-pointer"
                 />
                 <span
                   className={` ${
@@ -171,7 +170,7 @@ export default function Navbar() {
                       key={index}
                       className=" flex gap-3 group hover:bg-slate-700 py-2 rounded-md px-3 items-center"
                     >
-                      <Link href={list.Links} className="flex gap-3">
+                      <Link href={list.Links} className="flex gap-3 cursor-default md:cursor-pointer">
                         <span className=" text-white  group-hover:text-sky-500 text-2xl">
                           {list.icon}
                         </span>

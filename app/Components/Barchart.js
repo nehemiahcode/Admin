@@ -24,14 +24,16 @@ const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Sydmin Yearly Previews.',
+      text: 'Sydmin Yearly Reviews.',
     },
+    
   },
   responsive: true,
   interaction: {
     mode: 'index',
     intersect: false,
   },
+  maintainAspectRatio: false,
   scales: {
     x: {
       stacked: true,
@@ -70,7 +72,7 @@ const data = {
 };
 
 export default function Barchart  () {
-  return <Bar options={options} data={data} />;
+  return <Bar options={options} data={data} height={300} width={'100%'} />;
 }
 
 ;

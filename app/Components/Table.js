@@ -14,7 +14,7 @@ import {
   MdKeyboardDoubleArrowRight,
   MdKeyboardDoubleArrowLeft,
 } from "react-icons/md";
-import { PiPlanet } from "react-icons/pi";
+import Piechart from "./Piechart";
 
 export default function Table() {
   const data = useMemo(() => Datas, []);
@@ -66,7 +66,8 @@ export default function Table() {
   });
   return (
     <>
-      <div className=" grid grid-cols-1 lg:grid-cols-2 w-full py-10 md:px-16  px-5 lg:px-10">
+    <h1 className=" text-3xl font-semibold text-gray-300 pt-20 px-7">Users</h1>
+      <div className=" grid grid-cols-1 lg:grid-cols-2 w-full gap-6 pb-10 md:px-16  px-5 lg:px-10">
         <div>
           <span className=" relative">
             <input
@@ -74,24 +75,24 @@ export default function Table() {
               placeholder="Search..."
               value={filtering}
               onChange={(e) => setFiltering(e.target.value)}
-              className=" bg-gray-200 my-2 outline-none px-6 py-2 w-[250px] rounded-md"
+              className=" bg-slate-600 my-3 text-gray-300 outline-none placeholder:text-gray-300 px-6 py-2 w-[250px] rounded-md"
             />
-            <span className=" absolute left-0 text-xl pl-1 top-[0.04rem] text-gray-500">
+            <span className=" absolute left-0 text-xl pl-1 top-[0.04rem] text-gray-300">
               <BiSearch />
             </span>
           </span>
           <div className="w-[100%] mx-auto">
             <div className="w-[100%]">
-              <div className="overflow-x-auto  w-[100%]">
+              <div className="overflow-x-auto w-[100%]">
                 <div className="shadow overflow-x-auto border-b h-[400px] lg:h-[450px]  border-gray-200 sm:rounded-lg">
                   <table className="min-w-full divide-y  rounded-md divide-gray-200">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-slate-800">
                       {tables.getHeaderGroups().map((headergroup) => (
                         <tr key={headergroup.id}>
                           {headergroup.headers.map((header) => (
                             <th
                               key={header.id}
-                              className="px-6 py-3 text-left text-sm font-semibold text-gray-500 uppercase tracking-wider"
+                              className="px-6 py-3 text-left text-sm font-semibold text-gray-400 uppercase tracking-wider"
                             >
                               {header.isPlaceholder
                                 ? null
@@ -104,18 +105,19 @@ export default function Table() {
                         </tr>
                       ))}
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+
+                    <tbody className="divide-y divide-gray-100">
                       {tables.getRowModel().rows.map((row, index) => (
                         <tr
                           key={row.id}
                           className={`${
-                            index % 2 === 0 ? "bg-white" : "bg-gray-200"
-                          } hover:bg-gray-100`}
+                            index % 2 === 0 ? "bg-slate-800" : "bg-slate-900"
+                          } hover:bg-slate-700 `}
                         >
                           {row.getVisibleCells().map((cell) => (
                             <td
                               key={cell.id}
-                              className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
+                              className="px-6 py-4 whitespace-nowrap text-sm  text-gray-400"
                             >
                               {flexRender(
                                 cell.column.columnDef.cell,
@@ -160,28 +162,11 @@ export default function Table() {
           </div>
         </div>
 
-        <div className=" w-[100%] flex items-center justify-center mt-7 lg:m-0 h-auto">
-          <div className=" bg-slate-900 rounded-md h-[auto] w-[90%] flex flex-col gap-5 py-3 justify-between">
-            <span className="  w-full flex items-center justify-center text-cyan-600 text-8xl">
-              <PiPlanet />
-            </span>
-            <div className=" bg-slate-200 rounded-lg shadow-md w-[80%] px-3 py-2 flex flex-col justify-center items-center h-[auto] mx-auto">
-              <h1 className=" text-center font-semibold px-6 py-3 text-xl">
-                Become one of us today and join over{" "}
-                <span className=" font-bold text-cyan-600 text-xl">200k</span>{" "}
-                others to be an admin.
-              </h1>
-              <p className=" text-md text-center px-3 font-medium tracking-wider text-gray-600">
-                Kindly click on the button below to get started.
-              </p>
-              <Ripples className=" my-3">
-                <button className=" py-3 px-3 bg-slate-800 w-[160px] text-white text-center rounded-md">
-                  Start
-                </button>
-              </Ripples>
-            </div>
-          </div>
+       <div className=" w-[100%] flex items-center justify-center h-auto">
+       <div className=" bg-slate-900 rounded-md h-[400px] flex items-center justify-center w-[100%] py-3 ">
+          <Piechart />
         </div>
+       </div>
       </div>
     </>
   );

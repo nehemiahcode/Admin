@@ -5,6 +5,7 @@ import { MdAssuredWorkload } from "react-icons/md";
 import Barchart from "../Components/Barchart";
 import { VscPreview } from "react-icons/vsc";
 import Table from "../Components/Table";
+import { Piechart } from "../Components/Piechart";
 
 export default function Dashboard() {
   const Cards = [
@@ -39,7 +40,9 @@ export default function Dashboard() {
       <div>
         <section className=" w-[100%] h-auto grid gap-5 px-5 lg:px-10 pt-24  md:px-16 grid-cols-1 lg:grid-cols-2 ">
           <div className=" bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-md  w-[100%] flex items-center justify-center shadow-xl h-[320px]">
-            <Barchart />
+           <div className="  h-auto w-[100%]">
+           <Barchart  />
+           </div>
           </div>
           <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
             {Cards.map((card, index) => (

@@ -49,7 +49,7 @@ export default function SearchField() {
             <ul key={value.id} className={`text-md font-normal `}>
               <Ripples className=" w-full">
                 <Link href={value.Links} className="w-[100%]">
-                  <li className=" py-2 hover:bg-slate-700 w-[100%] cursor-none md:cursor-pointer font-Poppins rounded-md px-3">
+                  <li className=" py-2 hover:bg-slate-800 w-[100%] cursor-default md:cursor-pointer font-Poppins rounded-md px-3">
                     {value.heading}
                   </li>
                 </Link>
