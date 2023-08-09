@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import  { useState } from "react";
 import Layout from "../Components/layout";
 import { MdSaveAs } from "react-icons/md";
 import { FaEdit, FaUser } from "react-icons/fa";
+
 
 export default function Profile() {
   const storedUsername = localStorage.getItem("username");
@@ -21,7 +22,7 @@ export default function Profile() {
 
   return (
     <Layout>
-      <section className="h-screen w-full flex flex-col items-center">
+      <section className="h-full w-full flex flex-col items-center">
         <h1 className="font-extrabold text-xl lg:text-4xl  text-white  dark:text-slate-900 text-center pt-20">
           My Profile
         </h1>
