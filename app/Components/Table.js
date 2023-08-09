@@ -75,7 +75,7 @@ export default function Table() {
               placeholder="Search..."
               value={filtering}
               onChange={(e) => setFiltering(e.target.value)}
-              className=" bg-slate-600 dark:bg-white dark:shadow-md my-3 text-gray-300 outline-none dark:placeholder:text-slate-800 placeholder:text-gray-300 px-6 py-2 w-[250px] rounded-md"
+              className=" bg-slate-600 dark:bg-white dark:shadow-md my-3 text-gray-800 outline-none dark:placeholder:text-slate-800 placeholder:text-gray-300 px-6 py-2 w-[250px] rounded-md"
             />
             <span className=" absolute left-0 text-xl pl-1 top-[0.04rem] dark:text-slate-800 text-gray-300">
               <BiSearch />

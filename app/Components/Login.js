@@ -9,6 +9,9 @@ import { useForm } from "react-hook-form";
 import Logo from "./Logo";
 import { useRouter } from "next/navigation";
 import Container from "./section";
+// import { useState } from "react";
+
+
 const schema = yup.object({
   name: yup
     .string()
@@ -25,6 +28,9 @@ const schema = yup.object({
 });
 
 export default function Login() {
+  // const [name, setName] = useState("")
+  // const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
   const route = useRouter();
 
   const {
@@ -35,26 +41,43 @@ export default function Login() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
+
+  const onSubmit = () => {
     route.push("/Dashboard");
     reset();
+    console.log(name, email, password)
   };
 
+
+
+
   const Inputs = [
-    { type: "text", placeholder: "Username", error: "name", icon: <BiUser /> },
+    {
+      type: "text",
+      placeholder: "Username",
+      error: "name",
+      icon: <BiUser />,
+      // target: name,
+      // setTarget: setName,
+    },
     {
       type: "email",
       placeholder: "Email Address",
       error: "email",
       icon: <AiOutlineMail />,
+      // target: email,
+      // setTarget: setEmail,
     },
     {
       type: "password",
       placeholder: "Password",
       error: "password",
       icon: <MdLockOutline />,
+      // target: password,
+      // setTarget: setPassword,
     },
   ];
+  
   return (
     <Container>
       <div className=" h-auto w-auto">
@@ -72,7 +95,9 @@ export default function Login() {
                 <input
                   type={inputs.type}
                   {...register(inputs.error)}
+                  // value={inputs.target}
                   placeholder={inputs.placeholder}
+                  // onChange={(e) => inputs.setTarget(e.target.value)}
                   className=" border-[1px] placeholder:font-medium   placeholder:text-neutral-800 border-slate-900 outline-none mt-2 rounded-l-md  rounded-r-md bg-white shadow-lg pl-11 py-3 w-[100%]"
                 />
                 <div className=" absolute bg-slate-900 rounded-l-md top-2 text-white cursor-pointer py-[1rem]  px-3 text-lg">
