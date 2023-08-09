@@ -7,7 +7,7 @@ export const metadata = {
   description: "User Profile. ",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayouts({ children }) {
   return (
     <html lang="en">
       <body>

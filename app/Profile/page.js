@@ -6,19 +6,19 @@ import { FaEdit, FaUser } from "react-icons/fa";
 
 
 export default function Profile() {
-  const storedUsername = localStorage.getItem("username");
-  const defaultUsername = "User1234Vq";
-  const [username, setUsername] = useState(storedUsername || defaultUsername);
+  // const storedUsername = localStorage.getItem("username");
+  // const defaultUsername = "User1234Vq";
+  const [username, setUsername] = useState("User1234Vq");
   const [visible, setVisible] = useState(false);
 
   function handleEditUsername() {
     setVisible(!visible);
   }
 
-  function handleSaveUsername() {
-    localStorage.setItem("username", username);
-    setVisible(false);
-  }
+  // function handleSaveUsername() {
+  //   localStorage.setItem("username", username);
+  //   setVisible(false);
+  // }
 
   return (
     <Layout>
@@ -31,7 +31,7 @@ export default function Profile() {
         </span>
         <div className="dark:bg-white bg-slate-800 lg:w-[50%] sm:w-[70%] md:w-[60%] w-[90%] flex flex-col items-center justify-center h-[300px] py-10 rounded-md my-3">
           <h1 className="dark:text-black text-white mb-3 text-lg  w-auto px-5 flex  items-center justify-center  font-[600]">
-          {storedUsername ? username : defaultUsername}
+          {username}
           </h1>
           <div className="flex items-center my-2 gap-3">
             {visible && (
@@ -47,7 +47,7 @@ export default function Profile() {
             )}
             <div>
               <button
-                onClick={visible ? handleSaveUsername : handleEditUsername}
+                onClick={handleEditUsername}
                 className={`p-2 rounded-md ${
                   visible ? "border-black" : "border-gray-600"
                 } cursor-default md:cursor-pointer active:scale-110 hover:bg-slate-100 border-[2px] flex items-center justify-center`}
