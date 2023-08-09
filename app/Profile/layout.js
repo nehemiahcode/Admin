@@ -3,8 +3,8 @@ import Themeprovider from "../Components/Themeprovider";
 
 
 export const metadata = {
-  title: "Sydmin | Dashboard",
-  description: "User Dashboard. ",
+  title: "Sydmin | Profile",
+  description: "User Profile. ",
 };
 
 export default function RootLayout({ children }) {

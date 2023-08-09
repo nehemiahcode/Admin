@@ -13,7 +13,7 @@ export default function Page() {
   ];
 
   return (
-    <section className="h-[screen] w-[100%] bg-slate-700">
+    <section className="h-[screen] w-[100%] bg-slate-700 py-16">
       <div className=" w-auto flex items-center justify-center  py-5">
         <div className=" bg-white w-[90%] lg:w-[40%] md:w-[65%] sm:w-[70%]   flex items-center justify-center  rounded-lg py-2 px-3">
           {AccountDetails.map((account, index) => (

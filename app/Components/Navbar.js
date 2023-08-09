@@ -3,7 +3,6 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { RxDashboard } from "react-icons/rx";
 import { BiUser } from "react-icons/bi";
-import { MdSettingsSuggest } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { SiBaremetrics } from "react-icons/si";
 import { BiSearch } from "react-icons/bi";
@@ -15,6 +14,7 @@ import Image from "next/image";
 import { FaAngleUp, FaUsers } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "./Logo";
+import Themeswitch from "../Components/Themeswitch";
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
@@ -39,11 +39,6 @@ export default function Navbar() {
   const Drop = [
     { text: "My Profile", icon: <BiUser />, Links: "/Profile" },
     { text: "Users", icon: <FaUsers />, Links: "/Users" },
-    {
-      text: "Account Settings",
-      icon: <MdSettingsSuggest />,
-      Links: "/Settings",
-    },
     { text: "Log out", icon: <CiLogout />, Links: "/" },
   ];
   function handleNavbarActive() {
@@ -108,12 +103,13 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="  bg-slate-900   z-[9999] fixed  w-full flex items-center  justify-between h-[70px] left-0 top-0 px-5">
+      <header className="  bg-slate-900 dark:bg-white z-[9999] fixed  w-full flex items-center  justify-between h-[70px] left-0 top-0 px-5">
+
         <div className=" flex items-center gap-3">
           <span
             ref={menuRef}
             onClick={handleNavbarActive}
-            className=" text-white  border-slate-700 border-[1px] p-[0.2rem] rounded  text-3xl"
+            className=" text-white dark:text-black  border-slate-700 border-[1px] p-[0.2rem] rounded  text-3xl"
           >
             <RxHamburgerMenu />
           </span>
@@ -123,8 +119,8 @@ export default function Navbar() {
           <div className=" hidden lg:flex w-auto h-auto items-center ">
             <Ripples>
               <div ref={Search} onClick={handleSearch}>
-                <button className=" flex items-center gap-2 outline-none font-Poppins bg-slate-700 text-white py-2 w-[250px] rounded">
-                  <span className="  text-white pl-1 text-xl">
+                <button className=" flex items-center shadow-md gap-2 outline-none font-Poppins bg-slate-700 dark:bg-slate-200 dark:text-gray-800  text-white py-2 w-[250px] rounded">
+                  <span className=" dark:text-gray-800  text-white pl-1 text-xl">
                     <BiSearch />
                   </span>
                   Search for anything...
@@ -135,14 +131,15 @@ export default function Navbar() {
           {search && (
             <div
               ref={SearchBox}
-              className={` bg-slate-900 px-2  rounded-md w-[100%] overflow-hidden h-[200px] top-11 absolute`}
+              className={` bg-slate-900 shadow-2xl dark:bg-slate-300 px-2  rounded-md w-[100%] overflow-hidden h-[200px] top-11 absolute`}
             >
               <SearchField />
             </div>
           )}
         </div>
 
-        <div className=" flex items-center gap-2">
+        <div className=" flex items-center gap-4">
+        <Themeswitch />
           <div>
             <div className=" relative">
               <div
@@ -158,23 +155,27 @@ export default function Navbar() {
                 <span
                   className={` ${
                     dropdown && "rotate-[180deg] duration-300"
-                  } font-bold text-xl  text-white`}
+                  } font-bold text-xl dark:text-black  text-white`}
                 >
                   <FaAngleUp />
                 </span>
               </div>
               {dropdown && (
-                <div className=" absolute z-[999] font-Poppins gap-3 px-4 py-2 text-white flex flex-col  bg-slate-900  rounded-md  shadow-lg h-[auto] w-[250px]  right-2">
+                <div className=" absolute z-[999] font-Poppins gap-3 px-4 py-2  flex flex-col shadow-2xl dark:bg-white ring-1 dark:ring-slate-600 ring-inset  bg-slate-800  rounded-md   h-[auto] w-[250px]  right-2">
                   {Drop.map((list, index) => (
                     <Ripples
                       key={index}
-                      className=" flex gap-3 group hover:bg-slate-700 py-2 rounded-md px-3 items-center"
+                      className=" flex gap-3 group  hover:bg-slate-700 py-2 rounded-md px-3 items-center"
                     >
-                      <Link prefetch={false} href={list.Links} className="flex gap-3 cursor-default md:cursor-pointer">
-                        <span className=" text-white  group-hover:text-sky-500 text-2xl">
+                      <Link
+                        prefetch={false}
+                        href={list.Links}
+                        className="flex gap-3 cursor-default md:cursor-pointer"
+                      >
+                        <span className=" text-white dark:text-gray-800  group-hover:text-sky-500 text-2xl">
                           {list.icon}
                         </span>
-                        <h1 className=" text-sm font-medium">{list.text}</h1>
+                        <h1 className=" text-sm dark:group-hover:text-white text-white dark:text-gray-800 font-medium">{list.text}</h1>
                       </Link>
                     </Ripples>
                   ))}
@@ -188,14 +189,14 @@ export default function Navbar() {
           ref={navBarRef}
           className={`${
             active ? "left-[0] duration-200" : "left-[-10000%] duration-200"
-          }  h-[screen] flex flex-col top-0  w-72 z-[999] fixed left-0  bottom-0   bg-slate-900 `}
+          }  h-[screen] flex flex-col top-0  w-72 z-[999] fixed left-0  bottom-0 dark:bg-white   bg-slate-900 `}
         >
           <div className=" overflow-y-auto">
             <div className=" flex items-center py-4 px-5 gap-2 ">
               <span className="  text-blue-500  text-4xl">
                 <SiBaremetrics />
               </span>
-              <h1 className=" font-bold text-white text-2xl">Sydmin</h1>
+              <h1 className=" font-bold dark:text-gray-800 text-white text-2xl">Sydmin</h1>
             </div>
 
             <div className=" flex flex-col justify-between gap-10 h-[full]  w-full">
@@ -203,9 +204,9 @@ export default function Navbar() {
                 <div className=" lg:hidden">
                   <Ripples
                     onClick={() => setMobileSearch(!mobilesearch)}
-                    className="bg-slate-700 py-2 px-3 flex items-center  gap-3 text-md rounded-md text-white w-[100%] mx-auto"
+                    className="bg-slate-700 dark:bg-slate-800  py-2 px-3 flex items-center  gap-3 text-md rounded-md text-white w-[100%] mx-auto"
                   >
-                    <div className=" flex items-center gap-3 w-[100%]">
+                    <div className="  flex items-center gap-3 w-[100%]">
                       <BiSearch />
                       Search....
                     </div>
@@ -214,7 +215,7 @@ export default function Navbar() {
                 {mobilesearch && (
                   <div
                     ref={SearchBox}
-                    className=" absolute z-[99] top-16 bg-slate-700 px-3 rounded-lg w-[90%] lg:hidden mx-auto h-[250px]"
+                    className=" absolute z-[99] shadow-2xl top-16 dark:dark:bg-slate-800  bg-slate-700 px-3 rounded-lg w-[90%] lg:hidden mx-auto h-[250px]"
                   >
                     <SearchField click={() => setMobileSearch(false)} />
                   </div>
@@ -224,15 +225,15 @@ export default function Navbar() {
                 </h1>
                 {List.map((list, index) => (
                   <Link
-                  prefetch={false} 
+                    prefetch={false}
                     href={list.Links}
                     key={index}
                     className={`cursor-none md:cursor-pointer`}
                   >
-                    <Ripples className=" flex gap-2 items-center py-2 px-2 rounded-md w-full   hover:bg-slate-600">
-                      <h1 className=" text-white text-2xl">{list.icon}</h1>
+                    <Ripples className=" flex gap-2 items-center py-2 px-2 rounded-md w-full  dark:hover:bg-slate-300  hover:bg-slate-600">
+                      <h1 className=" text-white dark:text-gray-800 text-2xl">{list.icon}</h1>
                       <li
-                        className={`font-Poppins cursor-none md:cursor-pointer  font-light  text-white text-md`}
+                        className={`font-Poppins cursor-none md:cursor-pointer dark:text-gray-800  font-light  text-white text-md`}
                       >
                         {list.text}
                       </li>
@@ -241,15 +242,15 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <div className=" border-[1px]  flex flex-col justify-around rounded-lg w-[90%] text-white h-[200px] text-center font-Poppins mx-auto my-4">
+              <div className=" border-[1px] dark:border-black  flex flex-col justify-around rounded-lg w-[90%] dark:text-gray-600 text-white h-[200px] text-center font-Poppins mx-auto my-4">
                 <div>
                   <h1 className=" text-xl font-semibold ">Sydmin Pro</h1>
                   <p className=" text-sm  py-2">
                     Become a vip admin by Upgrading your Account
                   </p>
                 </div>
-                <Ripples className=" bg-slate-900 rounded-md w-[80%] mx-auto">
-                  <button className=" bg-blue-700 py-3 px-4 w-full text-center font-medium">
+                <Ripples className="  rounded-md w-[80%] mx-auto">
+                  <button className=" bg-blue-700 dark:bg-slate-900 py-3 dark:text-white px-4 w-full text-center font-medium">
                     Button
                   </button>
                 </Ripples>

@@ -1,5 +1,4 @@
 "use client";
-// import { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdLockOutline } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
@@ -73,7 +72,6 @@ export default function Login() {
                 <input
                   type={inputs.type}
                   {...register(inputs.error)}
-                  autoFocus="true"
                   placeholder={inputs.placeholder}
                   className=" border-[1px] placeholder:font-medium   placeholder:text-neutral-800 border-slate-900 outline-none mt-2 rounded-l-md  rounded-r-md bg-white shadow-lg pl-11 py-3 w-[100%]"
                 />

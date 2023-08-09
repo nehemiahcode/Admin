@@ -66,8 +66,8 @@ export default function Table() {
   });
   return (
     <>
-    <h1 className=" text-3xl font-semibold text-gray-300 pt-20 px-7">Users</h1>
-      <div className=" grid grid-cols-1 lg:grid-cols-2 w-full gap-6 pb-10 md:px-16  px-5 lg:px-10">
+    <h1 className=" text-3xl font-semibold text-gray-300 dark:text-gray-900 pt-20 px-7">Users</h1>
+      <div className=" grid grid-cols-1 lg:grid-cols-2 w-full gap-6 pb-10 md:px-16  px-2 lg:px-10">
         <div>
           <span className=" relative">
             <input
@@ -75,9 +75,9 @@ export default function Table() {
               placeholder="Search..."
               value={filtering}
               onChange={(e) => setFiltering(e.target.value)}
-              className=" bg-slate-600 my-3 text-gray-300 outline-none placeholder:text-gray-300 px-6 py-2 w-[250px] rounded-md"
+              className=" bg-slate-600 dark:bg-white dark:shadow-md my-3 text-gray-300 outline-none dark:placeholder:text-slate-800 placeholder:text-gray-300 px-6 py-2 w-[250px] rounded-md"
             />
-            <span className=" absolute left-0 text-xl pl-1 top-[0.04rem] text-gray-300">
+            <span className=" absolute left-0 text-xl pl-1 top-[0.04rem] dark:text-slate-800 text-gray-300">
               <BiSearch />
             </span>
           </span>
@@ -86,13 +86,13 @@ export default function Table() {
               <div className="overflow-x-auto w-[100%]">
                 <div className="shadow overflow-x-auto border-b h-[400px] lg:h-[450px]  border-gray-200 sm:rounded-lg">
                   <table className="min-w-full divide-y  rounded-md divide-gray-200">
-                    <thead className="bg-slate-800">
+                    <thead className="bg-slate-800 dark:bg-gray-50">
                       {tables.getHeaderGroups().map((headergroup) => (
                         <tr key={headergroup.id}>
                           {headergroup.headers.map((header) => (
                             <th
                               key={header.id}
-                              className="px-6 py-3 text-left text-sm font-semibold text-gray-400 uppercase tracking-wider"
+                              className="px-6 py-3 text-left text-sm font-semibold text-gray-400 dark:text-gray-800 uppercase tracking-wider"
                             >
                               {header.isPlaceholder
                                 ? null
@@ -106,18 +106,18 @@ export default function Table() {
                       ))}
                     </thead>
 
-                    <tbody className="divide-y divide-gray-100">
+                    <tbody className="divide-y divide-gray-200">
                       {tables.getRowModel().rows.map((row, index) => (
                         <tr
                           key={row.id}
                           className={`${
-                            index % 2 === 0 ? "bg-slate-800" : "bg-slate-900"
-                          } hover:bg-slate-700 `}
+                            index % 2 === 0 ? "bg-slate-800 dark:bg-white" : "bg-slate-900 dark:bg-gray-50"
+                          } hover:bg-slate-700 dark:hover:bg-gray-100 `}
                         >
                           {row.getVisibleCells().map((cell) => (
                             <td
                               key={cell.id}
-                              className="px-6 py-4 whitespace-nowrap text-sm  text-gray-400"
+                              className="px-6 py-4 whitespace-nowrap text-sm  text-gray-400 dark:text-gray-500"
                             >
                               {flexRender(
                                 cell.column.columnDef.cell,
@@ -163,7 +163,7 @@ export default function Table() {
         </div>
 
        <div className=" w-[100%] flex items-center justify-center h-auto">
-       <div className=" bg-slate-900 rounded-md h-[400px] flex items-center justify-center w-[100%] py-3 ">
+       <div className=" bg-slate-900 dark:bg-white rounded-md h-[400px] flex items-center justify-center w-[100%] py-3 ">
           <Piechart />
         </div>
        </div>
