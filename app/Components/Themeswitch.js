@@ -17,10 +17,10 @@ export default function Themeswitch() {
   }
 
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
+    if (theme === "dark") {
       setTheme("light");
+    } else {
+      setTheme("dark");
     }
   };
 
@@ -30,7 +30,17 @@ export default function Themeswitch() {
         onClick={toggleTheme}
         className="bg-blue-500 dark:bg-slate-800 dark dark:ring-cyan-400 focus:ring-2 ring-white ring-inset py-2 text-xl px-3 rounded-md"
       >
-        {theme === "light" ? <IoIosSunny /> : <PiMoonLight />}
+        {theme === "dark" ? (
+          <span>
+            <IoIosSunny />
+            <span className=" sr-only">Dark Theme</span>
+          </span>
+        ) : (
+          <span>
+            <PiMoonLight />
+            <span className=" sr-only">Light Theme</span>
+          </span>
+        )}
       </button>
     </Ripples>
   );

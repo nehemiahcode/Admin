@@ -66,8 +66,8 @@ export default function Table() {
   });
   return (
     <>
-    <h1 className=" text-3xl font-semibold text-gray-300 dark:text-gray-900 pt-20 px-7">Users</h1>
-      <div className=" grid grid-cols-1 lg:grid-cols-2 w-full gap-6 pb-10 md:px-16  px-2 lg:px-10">
+    <h1 className=" text-3xl font-semibold text-gray-300 dark:text-gray-900 pt-20 md:px-16 px-3">Users</h1>
+      <div className=" grid grid-cols-1 lg:grid-cols-2 w-full gap-6 pb-10 md:px-16  px-2 sm:px-6 lg:px-10">
         <div>
           <span className=" relative">
             <input

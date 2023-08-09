@@ -14,7 +14,7 @@ export default function Footer() {
     { text: "Terms", url: "/Terms" },
   ];
   return (
-    <footer className=" w-full h-[auto] grid grid-cols-2 lg:grid-cols-3 dark:bg-white bg-slate-900 py-6 px-5 lg:px-16">
+    <footer className=" w-full h-[auto] grid grid-cols-2 lg:grid-cols-3 dark:bg-white bg-slate-900 py-12 px-5 lg:px-16">
      
       <div>
         <h1 className=" text-lg font-medium dark:text-gray-500 dark:font-semibold text-white pb-2">Quick Links</h1>

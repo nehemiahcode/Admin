@@ -6,11 +6,11 @@ import { BiUser } from "react-icons/bi";
 import { CiLogout } from "react-icons/ci";
 import { SiBaremetrics } from "react-icons/si";
 import { BiSearch } from "react-icons/bi";
-import Avatar from "@/public/auoth.jpg";
+// import Avatar from "@/public/fireFox.jpeg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Ripples from "react-ripples";
 import SearchField from "./Search";
-import Image from "next/image";
+// import Image from "next/image";
 import { FaAngleUp, FaUsers } from "react-icons/fa";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -147,11 +147,11 @@ export default function Navbar() {
                 onClick={handleDropdown}
                 className=" flex items-center gap-4"
               >
-                <Image
+                {/* <Image
                   src={Avatar}
                   alt="myImage"
                   className=" h-[50px] w-[50px] rounded-full cursor-default md:cursor-pointer"
-                />
+                /> */}
                 <span
                   className={` ${
                     dropdown && "rotate-[180deg] duration-300"
