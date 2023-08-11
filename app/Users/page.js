@@ -2,7 +2,7 @@
 import Layout from "../Components/layout";
 import Table from "../Components/Table";
 import { useEffect, useState } from "react";
-export default function users() {
+export default function Users() {
   const [loadpage, setLoadPage] = useState(true);
 
   useEffect(() => {
