@@ -69,7 +69,7 @@ export default function Signin() {
       <div className=" h-auto w-auto">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" flex  flex-col items-center   bg-white  rounded-md w-[90%] md:w-[65%] sm:w-[70%] lg:w-[40%] py-5 px-3 h-[auto] shadow-lg mx-auto"
+          className=" flex  flex-col items-center   bg-white  rounded-md w-[90%] md:w-[65%] sm:w-[70%] lg:w-[40%] py-5 px-3 h-[auto] shadow-2xl mx-auto"
         >
           <Logo style={" text-6xl  pb-2 "} />
           <h1 className="  text-xl font-semibold px-5 text-center">
@@ -95,10 +95,10 @@ export default function Signin() {
             </div>
           ))}
           <div className=" w-full flex items-start">
-            <Ripples className=" w-[170px] bg-slate-900  my-4  text-center rounded">
+            <Ripples className=" w-[100%] bg-slate-900  my-4  text-center rounded">
               <button
                 type="submit"
-                className=" font-medium w-[170px] cursor-default md:cursor-pointer flex text-lg py-3  px-4 justify-center items-center text-white "
+                className=" font-medium w-[100%] cursor-default md:cursor-pointer flex text-lg py-3  px-4 justify-center items-center text-white "
               >
                 Sign in
               </button>
